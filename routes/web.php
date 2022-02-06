@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +31,14 @@ Route::get('/about', function() {
 })->middleware('check');
 
 Route::get('/contact', [ContactController::class, 'contactView'])->name('contact');
+
+// category controler
+Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
+Route::post('/category/add', [CategoryController::class, 'addCat'])->name('store.category');
+
+// with jetstream/livewire
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    // $userData = User::all();
+    $userData = DB::table('users')->get();
+    return view('dashboard', compact('userData'));
+})->name('dashboard');
