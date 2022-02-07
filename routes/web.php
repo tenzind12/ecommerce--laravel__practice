@@ -32,9 +32,22 @@ Route::get('/about', function() {
 
 Route::get('/contact', [ContactController::class, 'contactView'])->name('contact');
 
-// category controler
+// category controler -----------------------------------------
 Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
 Route::post('/category/add', [CategoryController::class, 'addCat'])->name('store.category');
+
+// edit cat
+Route::get('/category/edit/{id}', [CategoryController::class, 'edit']);
+Route::post('/category/update/{id}', [CategoryController::class, 'update']);
+
+
+
+
+
+
+
+
+
 
 // with jetstream/livewire
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

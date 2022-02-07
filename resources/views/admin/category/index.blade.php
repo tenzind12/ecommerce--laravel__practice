@@ -25,6 +25,7 @@
                                     <th scope="col">Category Name</th>
                                     <th scope="col">User Name</th>
                                     <th scope="col">Created At</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,14 +36,18 @@
                                     <!-- <th scope="row">{{$categories->firstItem()+$loop->index}}</th> -->
                                     <th scope="row">{{$i + $categories->firstItem()}}</th>
                                     <td>{{$category->category_name}}</td>
-                                    <td>{{$category->category_name}}</td>
+                                    <td>{{$category->user->name}}</td>
                                     <td>
                                         @if($category->created_at == NULL)
                                         <span class="text-danger">No data found</span>
                                         @else
                                             {{Carbon\Carbon::parse($category->created_at)->diffForHumans()}}
                                         @endif
-                                    </td>   
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                        <a href="{{ url('category/delete')}}" class="btn btn-sm btn-danger">Delete</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

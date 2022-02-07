@@ -12,9 +12,14 @@ class CategoryController extends Controller
 {
     // get all category
     public function allCat() {
-        // $categories = Category::latest()->get();
-        $categories = DB::table('categories')->latest()->paginate(5);
-
+        // 1. Query builder
+        // $categories = DB::table('categories')
+        //             ->join('users', 'categories.user_id', 'users.id')
+        //             ->select('categories.*', 'users.name')
+        //             ->latest()->paginate(5);
+        // 2. Eloquent
+        $categories = Category::latest()->paginate(5);
+        // $categories = DB::table('categories')->latest()->paginate(5);
         return view('admin.category.index', compact('categories'));
     }
 
@@ -23,16 +28,7 @@ class CategoryController extends Controller
         $validatedData = $request->validate([
             'category_name' => 'required|unique:categories|max:255',
         ]);
-
-        
-        // Category::insert([
-            //     'category_name' => $request->category_name,
-            //     'user_id'       => Auth::user()->id,
-            //     'created_at'    => Carbon::now(),
-            // ]);
             
-        // <-- two ways insert into database -->
-
         //  1. Eloquent // //
         // $category = new Category;
         // $category->category_name = $request->category_name;
@@ -48,4 +44,30 @@ class CategoryController extends Controller
         return redirect()->back()->with('success', 'Category inserted successfully');
     }
 
+    // updating category --------------------------------------------
+    public function edit($id) {
+        // 1. Eloquent
+        // $categories = Category::find($id);
+
+        // 2. Query builder
+        $categories = DB::table('categories')->where('id', $id)->first();
+        return view('admin.category.edit', compact('categories'));
+    }
+
+    public function update(Request $request, $id) {
+        // 1. Eloquent
+        // $category = Category::find($id);
+        // $category->update([
+        //     'category_name' => $request->category_name,
+        //     'user_id' => Auth::user()->id,
+        // ]);
+
+        // 2. Query builder
+        $data = [];
+        $data['category_name'] = $request->category_name;
+        $data['user_id'] = Auth::user()->id;
+        DB::table('categories')->where('id', $id)->update($data);
+
+        return redirect()->route('all.category')->with('success', 'Category name updated successfully');
+    }
 }
