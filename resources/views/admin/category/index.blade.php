@@ -104,8 +104,8 @@
                                     <td>{{$trash->user->name}}</td>
                                     <td>{{$trash->created_at}}</td>
                                     <td>
-                                        <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-sm btn-info">Restore</a>
-                                        <a href="{{ url('category/softdelete/'.$category->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                        <a href="{{ url('category/restore/'.$trash->id) }}" class="btn btn-sm btn-info">Restore</a>
+                                        <a href="{{ url('category/pdelete/'.$trash->id) }}" class="btn btn-sm btn-danger">P. Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

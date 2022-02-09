@@ -40,8 +40,11 @@ Route::post('/category/add', [CategoryController::class, 'addCat'])->name('store
 Route::get('/category/edit/{id}', [CategoryController::class, 'edit']);
 Route::post('/category/update/{id}', [CategoryController::class, 'update']);
 
-// Delete cat
+// Delete cat & restore
 Route::get('/category/softdelete/{id}', [CategoryController::class, 'softDelete']);
+Route::get('category/restore/{id}', [CategoryController::class, 'restore']);
+Route::get('category/pdelete/{id}', [CategoryController::class, 'pdelete']);
+
 
 
 

@@ -36,7 +36,7 @@ class CategoryController extends Controller
         // $category->user_id       = Auth::user()->id;
         // $category->save();
 
-        // 2. Query builder // //
+        // 2. Query builder // //  this doesnt show create_time
         $data = array();
         $data['category_name'] = $request->category_name;
         $data['user_id'] = Auth::user()->id;
@@ -76,5 +76,17 @@ class CategoryController extends Controller
     public function softDelete($id) {
         $delete = Category::find($id)->delete();
         return redirect()->back()->with('success', 'Category moved to trash !');
+    }
+
+    // to restore from trash (soft delete)
+    public function restore($id) {
+        $restore = Category::withTrashed()->find($id)->restore();
+        return redirect()->back()->with('success', 'Category restored to the list');
+    }
+
+    // to delete permanently from trash
+    public function pdelete($id) {
+        $pdelete = Category::onlyTrashed()->find($id)->forceDelete();
+        return redirect()->back()->with('success', 'Category permanently deleted');
     }
 }
