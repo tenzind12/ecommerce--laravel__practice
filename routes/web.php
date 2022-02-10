@@ -1,9 +1,8 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
-use App\Models\Category;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -46,7 +45,8 @@ Route::get('category/restore/{id}', [CategoryController::class, 'restore']);
 Route::get('category/pdelete/{id}', [CategoryController::class, 'pdelete']);
 
 
-
+// Brand Route ---------------------------
+Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
 
 
 

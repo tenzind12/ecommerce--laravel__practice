@@ -37,7 +37,7 @@ class CategoryController extends Controller
         // $category->save();
 
         // 2. Query builder // //  this doesnt show create_time
-        $data = array();
+        $data = [];
         $data['category_name'] = $request->category_name;
         $data['user_id'] = Auth::user()->id;
         DB::table('categories')->insert($data);
