@@ -6,8 +6,8 @@
     </x-slot>
 
     <div class="container mt-5">
-        <div class="row m-auto">
-            <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-8 m-auto">
                 <div class="card">
                     <div class="card-header">EDIT CATEGORY</div>
                     <div class="card-body">
@@ -18,7 +18,7 @@
                                 <input name="category_name" value="{{$categories->category_name}}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter category name">
                                 @error('category_name')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
-                            <button type="submit" class="btn btn-primary mt-3">Update Category</button>
+                            <button type="submit" class="btn btn-primary mt-3 ">Update Category</button>
                         </form>
                     </div>
                 </div>

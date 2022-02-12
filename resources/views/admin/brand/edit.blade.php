@@ -10,7 +10,7 @@
             
 
 
-            <div class="col-md-8">
+            <div class="col-md-8 m-auto">
                 <div class="card">
                     <div class="card-header">EDIT BRAND</div>
                     <div class="card-body">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Models\Brand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -45,7 +46,7 @@ Route::get('category/restore/{id}', [CategoryController::class, 'restore']);
 Route::get('category/pdelete/{id}', [CategoryController::class, 'pdelete']);
 
 
-// Brand Route ---------------------------
+// Brand Route -------------------------------------------------------------
 Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
 // posting new brand
 Route::post('/brand/add', [BrandController::class, 'storeBrand'])->name('store.brand');
@@ -55,7 +56,10 @@ Route::post('/brand/update/{id}', [BrandController::class, 'update']);
 // delete brand
 Route::get('/brand/delete/{id}', [BrandController::class, 'delete']);
 
-
+// Multipic Route -------------------------------------------------------------
+Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.image');
+// add pictures
+Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
 
 
 // with jetstream/livewire
