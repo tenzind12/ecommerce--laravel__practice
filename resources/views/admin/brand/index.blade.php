@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
 
             <div class="col-md-8">
                 @if(session('success'))
@@ -23,7 +23,7 @@
                                 <tr>
                                     <th scope="col">SL No</th>
                                     <th scope="col">Brand Name</th>
-                                    <th scope="col">Brand</th>
+                                    <th scope="col">Brand image</th>
                                     <th scope="col">Created At</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -36,7 +36,7 @@
                                     <!-- <th scope="row">{{$brands->firstItem()+$loop->index}}</th> -->
                                     <th scope="row">{{$i + $brands->firstItem()}}</th>
                                     <td>{{$brand->brand_name}}</td>
-                                    <td>{{$brand->user->name}}</td>
+                                    <td><img src="{{asset($brand->brand_image)}}" alt="{{$brand->brand_name}}" width="50"></td>
                                     <td>
                                         @if($brand->created_at == NULL)
                                         <span class="text-danger">No data found</span>
@@ -62,7 +62,7 @@
                 <div class="card">
                     <div class="card-header">ADD BRAND</div>
                     <div class="card-body">
-                        <form action="{{route('store.category')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('store.brand')}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">
@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Brand Image</label>
                                 <input name="brand_image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter category name">
-                                @error('brand_name')<span class="text-danger">{{$message}}</span>@enderror
+                                @error('brand_image')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
 
                             <button type="submit" class="btn btn-primary">Add Brand</button>
