@@ -77,7 +77,7 @@
                                 @error('brand_image')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Add Brand</button>
+                            <button type="submit" class="btn btn-primary mt-2">Add Brand</button>
                         </form>
                     </div>
                 </div>

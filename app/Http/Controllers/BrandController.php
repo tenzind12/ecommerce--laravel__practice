@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Http\Requests\BrandRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
+use Image;
 
 class BrandController extends Controller
 {
@@ -19,16 +19,21 @@ class BrandController extends Controller
     // add new brand
     public function storeBrand(BrandRequest $request) {
         $brand_image = $request->file('brand_image');
-        $name_gen = hexdec(uniqid());
-        $img_ext = strtolower($brand_image->getClientOriginalExtension());
-        $location = 'image/brand/';
-        $img_name = $name_gen.'.'.$img_ext;
 
-        $brand_image->move($location, $img_name);
+        // $name_gen = hexdec(uniqid());
+        // $img_ext = strtolower($brand_image->getClientOriginalExtension());
+        // $location = 'image/brand/';
+        // $img_name = $name_gen.'.'.$img_ext;
+        // $brand_image->move($location, $img_name);
+
+        $name_gen = hexdec(uniqid()).'.'.$brand_image->getClientOriginalExtension();
+        $location = 'image/brand/';
+
+        Image::make($brand_image)->resize(300, 200)->save($location . $name_gen);
 
         Brand::insert([
             'brand_name' =>$request->input('brand_name'),
-            'brand_image' => $location.$img_name,
+            'brand_image' => $location.$name_gen,
             'created_at' => Carbon::now(),
         ]);
 
