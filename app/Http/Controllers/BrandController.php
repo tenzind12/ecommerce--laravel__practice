@@ -75,4 +75,15 @@ class BrandController extends Controller
 
         return Redirect('/brand/all')->with('success', 'Brand updated');
     }
+
+    // soft delete brand
+    public function delete($id) {
+        $data      = Brand::find($id);
+        // image unlink to remove from folder image/brand
+        $old_image = $data->brand_image;
+        unlink($old_image);
+
+        $data->delete();
+        return Redirect()->back()->with('success', 'Brand moved to trash!');
+    }
 }

@@ -85,8 +85,8 @@ class CategoryController extends Controller
     }
 
     // to delete permanently from trash
-    public function pdelete($id) {
-        $pdelete = Category::onlyTrashed()->find($id)->forceDelete();
-        return redirect()->back()->with('success', 'Category permanently deleted');
-    }
+    // public function pdelete($id) {
+    //     $pdelete = Category::onlyTrashed()->find($id)->forceDelete();
+    //     return redirect()->back()->with('success', 'Category permanently deleted');
+    // }
 }
