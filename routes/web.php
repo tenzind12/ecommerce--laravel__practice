@@ -62,9 +62,14 @@ Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.i
 Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
 
 
-// with jetstream/livewire
+// with jetstream/livewire --------------------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // $userData = User::all();
     $userData = DB::table('users')->get();
     return view('dashboard', compact('userData'));
 })->name('dashboard');
+
+// email verification when signing up ------------------------------------
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');

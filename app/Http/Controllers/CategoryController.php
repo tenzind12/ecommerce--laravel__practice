@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
+    // for logged in authentification
+    public function __construct()
+    {
+        $this->middleware('auth');       
+    }
     // get all category---------------------------------------------------
     public function allCat() {
         // 1. Query builder

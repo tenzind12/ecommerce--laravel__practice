@@ -11,7 +11,7 @@
             <div class="col-md-8">
                 <div class="card-group">
                     @foreach($images as $image)
-                        <div class="col-md-4">
+                        <div class="col-sm-4">
                             <div class="card">
                                 <img src="{{asset($image->image)}}" alt="multi image" class="m-2">
                             </div>
