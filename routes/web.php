@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
@@ -61,18 +62,18 @@ Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.i
 // add pictures
 Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
 
-Route::get('tenzin', function () {
-    return view('admin.index');
-});
-
 // with jetstream/livewire --------------------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // $userData = User::all();
     $userData = DB::table('users')->get();
-    return view('dashboard', compact('userData'));
+    return view('admin.index');
 })->name('dashboard');
 
 // email verification when signing up ------------------------------------
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
+
+
+// admin logout
+Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
