@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/home', function() {
@@ -77,3 +77,6 @@ Route::get('/email/verify', function () {
 
 // admin logout
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+// Route::get('tenzin', function() {
+//     return view('home');
+// });
