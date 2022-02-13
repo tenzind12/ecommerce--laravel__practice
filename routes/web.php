@@ -61,6 +61,9 @@ Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.i
 // add pictures
 Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
 
+Route::get('tenzin', function () {
+    return view('admin.index');
+});
 
 // with jetstream/livewire --------------------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
