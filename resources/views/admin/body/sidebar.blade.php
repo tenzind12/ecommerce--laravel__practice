@@ -18,6 +18,8 @@
 						<div class="menu-title">Slider Menu</div>
 					</a>
 					<ul>
+						<li> <a href="{{route('home.slider')}}"><i class="bx bx-right-arrow-alt"></i>Slider</a>
+						</li>
 						<li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
 						</li>
 						<li> <a href="dashboard-analytics.html"><i class="bx bx-right-arrow-alt"></i>About</a>

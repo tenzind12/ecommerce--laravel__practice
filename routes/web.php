@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -62,6 +63,26 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'delete']);
 Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.image');
 // add pictures
 Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
+
+// Admin routes ------------<===================>
+Route::get('slider/all', [HomeController::class, 'homeSlider'])->name('home.slider');
+Route::get('slider/add/form', [HomeController::class, 'addSlider'])->name('add.slider');
+Route::post('slider/add/action', [HomeController::class, 'storeSlider'])->name('store.slider');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // with jetstream/livewire --------------------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
