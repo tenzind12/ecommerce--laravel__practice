@@ -391,7 +391,7 @@
 		<div class="page-wrapper">
 			<div class="page-content">
 
-                @yield('admin')
+                @yield('admin_content')
 
 			</div>
 		</div>

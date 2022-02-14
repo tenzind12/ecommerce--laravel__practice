@@ -20,7 +20,8 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $brands = Brand::all();
+    return view('home', compact('brands'));
 });
 
 Route::get('/home', function() {
@@ -75,8 +76,5 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 
 
-// admin logout
+// admin logout ---------------------------------------------
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
-// Route::get('tenzin', function() {
-//     return view('home');
-// });

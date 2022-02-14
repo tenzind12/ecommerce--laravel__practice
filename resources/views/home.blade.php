@@ -247,54 +247,13 @@
         </div>
 
         <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
-
+        @foreach($brands as $brand)
           <div class="col-lg-3 col-md-4 col-6">
             <div class="client-logo">
-              <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
+              <img src="{{$brand->brand_image}}" class="img-fluid" alt="">
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
-            </div>
-          </div>
+        @endforeach
 
         </div>
 
