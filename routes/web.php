@@ -65,9 +65,13 @@ Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.i
 Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
 
 // Admin routes ------------<===================>
+// == sliders == //
 Route::get('slider/all', [HomeController::class, 'homeSlider'])->name('home.slider');
 Route::get('slider/add/form', [HomeController::class, 'addSlider'])->name('add.slider');
 Route::post('slider/add/action', [HomeController::class, 'storeSlider'])->name('store.slider');
+Route::get('slider/edit/{id}', [HomeController::class, 'edit']);
+Route::post('slider/update/{id}', [HomeController::class, 'update']);
+Route::get('slider/delete/{id}', [HomeController::class, 'delete']);
 
 
 

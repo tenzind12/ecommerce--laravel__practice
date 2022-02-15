@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     // Admin controlling site [sliders,]
     
-    // Slider section backend view
+    // all Sliders / backend view
     public function homeSlider() {
         $sliders = Slider::latest()->get();
         return view('admin.slider.index')->with('sliders', $sliders);
@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function addSlider() {
         return view('admin.slider.create');
     }
-    // add slider
+    // add new slider action
     public function storeSlider(Request $request) {
         $validation = $request->validate([
             'title' => 'required|unique:sliders',
@@ -50,5 +50,41 @@ class HomeController extends Controller
         ]);
 
         return Redirect()->route('home.slider')->with('success', 'New slider inserted!');
+    }
+
+    // edit slider form -------------------------------------------
+    public function edit($id) {
+        $slider = Slider::find($id);
+        return view('admin.slider.edit', compact('slider'));
+    }
+
+    // update slider action 
+    public function update(Request $request, $id) {
+        $validation = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        
+        $updateSlider = Slider::find($id);
+
+        $old_image = $request->old_image;
+        $new_image = $request->file('image');
+
+        if($new_image != null) {
+            $name_gen = hexdec(uniqid()).'.'. $new_image->getClientOriginalExtension();
+            $location = 'image/slider/';
+            $new_image->move($location, $name_gen);
+
+            unlink($old_image);
+            $updateSlider->title = $request->title;
+            $updateSlider->image = $location.$name_gen;
+            $updateSlider->description = $request->description;    
+            $updateSlider->save();
+        }else {
+            $updateSlider->title = $request->title;
+            $updateSlider->description = $request->description;    
+            $updateSlider->save();
+        }
+        return Redirect('/slider/all')->with('success', 'Slider data updated ');
     }
 }
