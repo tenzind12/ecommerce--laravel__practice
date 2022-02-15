@@ -36,7 +36,7 @@
                             <tbody>
 
                                 @php ($i = 1)
-                                @foreach ($sliders as $i => $slider)
+                                @foreach ($sliders as $slider)
                                 <tr>
                                     <th scope="row">{{$i ++}}</th>
                                     <td>{{$slider->title}}</td>

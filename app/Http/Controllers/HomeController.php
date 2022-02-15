@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     // Admin controlling site [sliders,]
     
-    // Slider section 
+    // Slider section backend view
     public function homeSlider() {
         $sliders = Slider::latest()->get();
         return view('admin.slider.index')->with('sliders', $sliders);
