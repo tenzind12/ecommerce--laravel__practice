@@ -65,6 +65,7 @@ class HomeController extends Controller
             'description' => 'required',
         ]);
         
+        // == ELOQUENT == //
         $updateSlider = Slider::find($id);
 
         $old_image = $request->old_image;

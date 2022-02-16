@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Models\Brand;
+use App\Models\HomeAbout;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -65,7 +67,7 @@ Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.i
 Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
 
 // Admin routes ------------<===================>
-// == sliders == //
+// == SLIDERS section == //
 Route::get('slider/all', [HomeController::class, 'homeSlider'])->name('home.slider');
 Route::get('slider/add/form', [HomeController::class, 'addSlider'])->name('add.slider');
 Route::post('slider/add/action', [HomeController::class, 'storeSlider'])->name('store.slider');
@@ -73,15 +75,13 @@ Route::get('slider/edit/{id}', [HomeController::class, 'edit']);
 Route::post('slider/update/{id}', [HomeController::class, 'update']);
 Route::get('slider/delete/{id}', [HomeController::class, 'delete']);
 
-
-
-
-
-
-
-
-
-
+// == ABOUT US section == //
+Route::get('home/about', [AboutUsController::class, 'getAbout'])->name('home.about');
+Route::get('home/about/add/form', [AboutUsController::class, 'addAbout'])->name('add.about');
+Route::post('home/about/add/action', [AboutUsController::class, 'storeAbout'])->name('store.about');
+Route::get('home/about/edit/{id}', [AboutUsController::class, 'edit']);
+Route::post('home/about/update/{id}', [AboutUsController::class, 'update']);
+Route::get('home/about/delete/{id}', [AboutUsController::class, 'delete']);
 
 
 
