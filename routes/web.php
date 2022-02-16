@@ -7,7 +7,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Models\Brand;
-use App\Models\HomeAbout;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -24,7 +23,8 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     $brands = Brand::all();
-    return view('home', compact('brands'));
+    $about = DB::table('home_abouts')->first();
+    return view('home', compact('brands', 'about'));
 });
 
 Route::get('/home', function() {
