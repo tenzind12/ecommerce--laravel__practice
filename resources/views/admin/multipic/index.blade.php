@@ -1,9 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Multi Pictures <b></b>
-        </h2>
-    </x-slot>
+@extends('admin.admin_master')
+@section('admin_content')
 
     <div class="container">
         <div class="row mt-5">
@@ -26,7 +22,6 @@
                     <div class="card-body">
                         <form action="{{route('store.image')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Brand Image</label>
                                 <input name="image[]" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter category name" multiple>
@@ -40,4 +35,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

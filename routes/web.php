@@ -24,7 +24,8 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     $brands = Brand::all();
     $about = DB::table('home_abouts')->first();
-    return view('home', compact('brands', 'about'));
+    $portfolios = DB::table('multipics')->get();
+    return view('home', compact('brands', 'about', 'portfolios'));
 });
 
 Route::get('/home', function() {

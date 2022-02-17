@@ -15,16 +15,16 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class='bx bx-home-circle'></i>
 						</div>
-						<div class="menu-title">Slider Menu</div>
+						<div class="menu-title">Home Page</div>
 					</a>
 					<ul>
-						<li> <a href="{{route('home.slider')}}"><i class="bx bx-right-arrow-alt"></i>Home Slider</a>
+						<li> <a href="{{route('home.slider')}}"><i class="bx bx-right-arrow-alt"></i>Slider</a>
 						</li>
 						<li> <a href="{{route('home.about')}}"><i class="bx bx-right-arrow-alt"></i>About Us</a>
 						</li>
 						<li> <a href="dashboard-analytics.html"><i class="bx bx-right-arrow-alt"></i>About</a>
 						</li>
-						<li> <a href="dashboard-digital-marketing.html"><i class="bx bx-right-arrow-alt"></i>Portfolio</a>
+						<li> <a href="{{route('multi.image')}}"><i class="bx bx-right-arrow-alt"></i>Portfolio</a>
 						</li>
 						<li> <a href="{{route('all.brand')}}"><i class="bx bx-right-arrow-alt"></i>Brand</a>
 						</li>
