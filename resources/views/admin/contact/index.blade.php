@@ -50,8 +50,8 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{url('home/contact/edit/'.$contact->id)}}" class="btn btn-sm btn-info">Edit</a>
-                                        <a href="{{url('home/contact/delete/'.$contact->id)}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                        <a href="{{url('admin/contact/edit/'.$contact->id)}}" class="btn btn-sm btn-info">Edit</a>
+                                        <a href="{{url('admin/contact/delete/'.$contact->id)}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

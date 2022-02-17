@@ -87,7 +87,10 @@ Route::get('home/about/delete/{id}', [AboutUsController::class, 'delete']);
 // == CONTACT SECTION == //
 Route::get('/admin/contact', [ContactController::class, 'adminContact'])->name('admin.contact');
 Route::get('/admin/contact/add/form', [ContactController::class, 'addContact'])->name('add.contact');
-Route::post('/admin/contact/add/action', [ContactController::class, 'storeContact'])->name('storeContact');
+Route::post('/admin/contact/add/action', [ContactController::class, 'storeContact'])->name('store.contact');
+Route::get('/admin/contact/edit/{id}', [ContactController::class, 'edit']);
+Route::post('/admin/contact/update/{id}', [ContactController::class, 'update']);
+Route::get('/admin/contact/delete/{id}', [ContactController::class, 'delete']);
 
 
 
@@ -110,5 +113,3 @@ Route::get('/email/verify', function () {
 
 // admin logout ---------------------------------------------
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
-
-// test

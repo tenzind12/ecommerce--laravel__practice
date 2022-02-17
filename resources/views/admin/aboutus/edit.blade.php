@@ -2,7 +2,7 @@
 @section('admin_content')
             <div class="col-8 m-auto">
                 <div class="card">
-                    <div class="card-header">ADD ABOUT US</div>
+                    <div class="card-header">EDIT ABOUT US</div>
                     <div class="card-body">
                         <form action="{{url('home/about/update/'.$edit->id)}}" method="POST">
                             @csrf
