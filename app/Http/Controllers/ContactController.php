@@ -73,5 +73,11 @@ class ContactController extends Controller
         Contact::find($id)->delete();
         return redirect()->route('admin.contact')->with('success', 'Contact has been deleted');
     }
+
+    // FRONT PAGE ROUTES ------------<===================> -------------------------
+    public function getContact() {
+        $contactDetail = DB::table('contacts')->first();
+        return view('pages.contact', compact('contactDetail'));
+    }
 }
     
