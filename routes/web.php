@@ -110,3 +110,5 @@ Route::get('/email/verify', function () {
 
 // admin logout ---------------------------------------------
 Route::get('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+// test
