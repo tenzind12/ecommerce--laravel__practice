@@ -37,7 +37,6 @@ Route::get('/about', function() {
     echo "this is about page";
 })->middleware('check');
 
-Route::get('/contact', [ContactController::class, 'contactView'])->name('contact');
 
 // category controler -----------------------------------------
 Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
@@ -69,7 +68,7 @@ Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.i
 Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
 
 // Admin routes ------------<===================> -------------------------
-// == SLIDERS section == //
+// == SLIDERS SECTION == //
 Route::get('slider/all', [HomeController::class, 'homeSlider'])->name('home.slider');
 Route::get('slider/add/form', [HomeController::class, 'addSlider'])->name('add.slider');
 Route::post('slider/add/action', [HomeController::class, 'storeSlider'])->name('store.slider');
@@ -77,7 +76,7 @@ Route::get('slider/edit/{id}', [HomeController::class, 'edit']);
 Route::post('slider/update/{id}', [HomeController::class, 'update']);
 Route::get('slider/delete/{id}', [HomeController::class, 'delete']);
 
-// == ABOUT US section == //
+// == ABOUT US SECTION == //
 Route::get('home/about', [AboutUsController::class, 'getAbout'])->name('home.about');
 Route::get('home/about/add/form', [AboutUsController::class, 'addAbout'])->name('add.about');
 Route::post('home/about/add/action', [AboutUsController::class, 'storeAbout'])->name('store.about');
@@ -85,7 +84,10 @@ Route::get('home/about/edit/{id}', [AboutUsController::class, 'edit']);
 Route::post('home/about/update/{id}', [AboutUsController::class, 'update']);
 Route::get('home/about/delete/{id}', [AboutUsController::class, 'delete']);
 
-
+// == CONTACT SECTION == //
+Route::get('/admin/contact', [ContactController::class, 'adminContact'])->name('admin.contact');
+Route::get('/admin/contact/add/form', [ContactController::class, 'addContact'])->name('add.contact');
+Route::post('/admin/contact/add/action', [ContactController::class, 'storeContact'])->name('storeContact');
 
 
 

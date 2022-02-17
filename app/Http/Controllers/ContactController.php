@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -13,8 +14,9 @@ class ContactController extends Controller
     }
     
     // contact view
-    function contactView() {
-        return view('contact');
+    function adminContact() {
+        $datas = DB::table('contacts')->get();
+        return view('admin.contact.index', compact('datas'));
     }
 }
     

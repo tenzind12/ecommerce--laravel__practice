@@ -22,8 +22,6 @@
 						</li>
 						<li> <a href="{{route('home.about')}}"><i class="bx bx-right-arrow-alt"></i>About Us</a>
 						</li>
-						<li> <a href="dashboard-analytics.html"><i class="bx bx-right-arrow-alt"></i>About</a>
-						</li>
 						<li> <a href="{{route('multi.image')}}"><i class="bx bx-right-arrow-alt"></i>Portfolio</a>
 						</li>
 						<li> <a href="{{route('all.brand')}}"><i class="bx bx-right-arrow-alt"></i>Brand</a>
@@ -34,22 +32,12 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
-						<div class="menu-title">Application</div>
+						<div class="menu-title">Contact Page</div>
 					</a>
 					<ul>
-						<li> <a href="app-emailbox.html"><i class="bx bx-right-arrow-alt"></i>Email</a>
+						<li> <a href="{{route('admin.contact')}}"><i class="bx bx-right-arrow-alt"></i>Contact Profile</a>
 						</li>
-						<li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Chat Box</a>
-						</li>
-						<li> <a href="app-file-manager.html"><i class="bx bx-right-arrow-alt"></i>File Manager</a>
-						</li>
-						<li> <a href="app-contact-list.html"><i class="bx bx-right-arrow-alt"></i>Contatcs</a>
-						</li>
-						<li> <a href="app-to-do.html"><i class="bx bx-right-arrow-alt"></i>Todo List</a>
-						</li>
-						<li> <a href="app-invoice.html"><i class="bx bx-right-arrow-alt"></i>Invoice</a>
-						</li>
-						<li> <a href="app-fullcalender.html"><i class="bx bx-right-arrow-alt"></i>Calendar</a>
+						<li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Contact Message</a>
 						</li>
 					</ul>
 				</li>
