@@ -97,6 +97,18 @@ Route::get('/admin/contact/delete/{id}', [ContactController::class, 'delete']);
 // FRONT PAGE ROUTES ------------<===================> -------------------------
 Route::get('/home/portfolio', [PortfolioController::class, 'getPortfolio'])->name('portfolio');
 Route::get('/home/contact', [ContactController::class, 'getContact'])->name('contact');
+Route::post('/home/contact/submit', [ContactController::class, 'storeMessage'])->name('contact.form');
+
+
+
+
+
+
+
+
+
+
+
 
 // with jetstream/livewire --------------------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

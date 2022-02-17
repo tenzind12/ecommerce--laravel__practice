@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Contact;
+use App\Models\ContactForm;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 
@@ -75,9 +76,29 @@ class ContactController extends Controller
     }
 
     // FRONT PAGE ROUTES ------------<===================> -------------------------
+    // display contact page
     public function getContact() {
         $contactDetail = DB::table('contacts')->first();
         return view('pages.contact', compact('contactDetail'));
+    }
+
+    // Store contact message in db
+    public function storeMessage(Request $request) {
+        $validation = $request->validate([
+            'name' => 'required',
+            'email' => 'email|required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        ContactForm::insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'created_at' => Carbon::now(),
+        ]);
+        return redirect()->back()->with('success', 'Your message has been sent!');
     }
 }
     
