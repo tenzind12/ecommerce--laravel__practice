@@ -6,6 +6,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PortfolioController;
 use App\Models\Brand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -67,7 +68,7 @@ Route::get('/multi/image', [BrandController::class, 'multiPic'] )->name('multi.i
 // add pictures
 Route::post('/multipic/add', [BrandController::class, 'storeImage'])->name('store.image');
 
-// Admin routes ------------<===================>
+// Admin routes ------------<===================> -------------------------
 // == SLIDERS section == //
 Route::get('slider/all', [HomeController::class, 'homeSlider'])->name('home.slider');
 Route::get('slider/add/form', [HomeController::class, 'addSlider'])->name('add.slider');
@@ -87,6 +88,9 @@ Route::get('home/about/delete/{id}', [AboutUsController::class, 'delete']);
 
 
 
+
+// FRONT PAGE ROUTES ------------<===================> -------------------------
+Route::get('/home/portfolio', [PortfolioController::class, 'getPortfolio'])->name('portfolio');
 
 
 // with jetstream/livewire --------------------------------------------
