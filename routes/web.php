@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminPassword;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
@@ -93,6 +94,8 @@ Route::post('/admin/contact/update/{id}', [ContactController::class, 'update']);
 Route::get('/admin/contact/delete/{id}', [ContactController::class, 'delete']);
 Route::get('/admin/contact/message', [ContactController::class, 'adminMessage'])->name('admin.contact.message');
 
+// == CHANGE ADMIN PASSWORD == //
+Route::get('/admin/change/password', [AdminPassword::class, 'changePassword'])->name('change.password');
 
 // FRONT PAGE ROUTES ------------<===================> -------------------------
 Route::get('/home/portfolio', [PortfolioController::class, 'getPortfolio'])->name('portfolio');
