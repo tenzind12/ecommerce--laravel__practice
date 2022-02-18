@@ -1,4 +1,4 @@
-#Running the project
+# Running the project
 <ul>
     <li>Clone the project</li>
     <li>Go to the folder application using cd command on your cmd or terminal</li>
