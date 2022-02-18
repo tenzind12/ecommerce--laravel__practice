@@ -91,7 +91,7 @@ Route::post('/admin/contact/add/action', [ContactController::class, 'storeContac
 Route::get('/admin/contact/edit/{id}', [ContactController::class, 'edit']);
 Route::post('/admin/contact/update/{id}', [ContactController::class, 'update']);
 Route::get('/admin/contact/delete/{id}', [ContactController::class, 'delete']);
-
+Route::get('/admin/contact/message', [ContactController::class, 'adminMessage'])->name('admin.contact.message');
 
 
 // FRONT PAGE ROUTES ------------<===================> -------------------------

@@ -100,5 +100,11 @@ class ContactController extends Controller
         ]);
         return redirect()->back()->with('success', 'Your message has been sent!');
     }
+
+    // display contact form message in admin contact page
+    public function adminMessage() {
+        $contactMessages = ContactForm::all();
+        return view('admin.contact.contactMessage', compact('contactMessages'));
+    }
 }
     

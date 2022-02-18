@@ -37,7 +37,7 @@
 					<ul>
 						<li> <a href="{{route('admin.contact')}}"><i class="bx bx-right-arrow-alt"></i>Contact Profile</a>
 						</li>
-						<li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Contact Message</a>
+						<li> <a href="{{route('admin.contact.message')}}"><i class="bx bx-right-arrow-alt"></i>Contact Message</a>
 						</li>
 					</ul>
 				</li>
