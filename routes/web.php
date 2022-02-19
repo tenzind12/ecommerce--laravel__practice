@@ -96,6 +96,8 @@ Route::get('/admin/contact/message', [ContactController::class, 'adminMessage'])
 
 // == CHANGE ADMIN PASSWORD == //
 Route::get('/admin/change/password', [AdminPassword::class, 'changePassword'])->name('change.password');
+Route::post('/admin/update/password', [AdminPassword::class, 'updatePassword'])->name('password.update');
+
 
 // FRONT PAGE ROUTES ------------<===================> -------------------------
 Route::get('/home/portfolio', [PortfolioController::class, 'getPortfolio'])->name('portfolio');
